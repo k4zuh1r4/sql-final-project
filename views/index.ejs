@@ -6,6 +6,12 @@
     <title>Search by ID</title>
 </head>
 <body>
+    <h2>Test homepage</h2>
+    <form action="/film_list/" method = "GET">
+        <label for="searchInput">Search:</label>
+        <input type="text" name="searchTerm" id="searchInput">
+        <button type="Search">Search</button>
+    </form>
     <h2>ID search</h2>
     <ul>
         <li>Show ID: <%= resultsOutput.show_id%></li>

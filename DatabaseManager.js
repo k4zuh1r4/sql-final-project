@@ -21,7 +21,6 @@ export async function getID(id) {
     );
     return rows[0];
 }
-
 export async function addEntry(show_id, type, title, director, cast, country, date_added, release_year, rating, duration, listed_in, description) {
     const result = await poolOpener.query(
         'INSERT INTO netflix_titles (show_id, type, title, director, cast, country, date_added, release_year, rating, duration, listed_in, description) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
@@ -46,6 +45,7 @@ export async function countryCount() {
     const result = await poolOpener.query(`SELECT country, COUNT(*) AS total_movies FROM netflix_titles WHERE country IS NOT NULL AND country != '' GROUP BY country ORDER BY total_movies DESC LIMIT 10;`);
     return result[0];
 }
+
 //const test = await getID(2);
 //console.log(test.show_id);
 //const testLog = await addEntry('s400', 'Movie', 'The Room', 'Tommy Wiseau', 'Tommy Wiseau, Greg Sestero', 'USA', '2019-01-01', 2003, 'R', '99 min', 'Drama, Comedy', 'test desc');
